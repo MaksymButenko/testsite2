@@ -1,11 +1,48 @@
 <html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анімація</title>
+    <style>
+        /* Задаємо фонове зображення */
+        body {
+            background-image: url('./Default_road_3.jpg'); /* Замініть URL на URL-адресу вашого фонового зображення */
+            background-size: cover; /* Встановлюємо, щоб фонове зображення покривало весь вікно */
+            background-position: center; /* Вирівнюємо фонове зображення по центру */
+        }
+    </style>
+</head>
+
+
+
 <body>
-88888888888888888888888888888
+
+<img id="myImage" src="./output-onlinepngtools.png" style="position: absolute; top: 0; left: 0;" alt="My Image">
 
 <script>
-document.cookie = "test4=Hello111";
+var image = document.getElementById('myImage');
+
+// Встановлюємо початкові значення для положення зображення
+var position = 0;
+
+// Встановлюємо інтервал, який буде змінювати положення зображення кожні 100 мілісекунд (10 секунд / 1000 мілісекунд = 100 мілісекунд)
+var interval = setInterval(moveImage, 10);
+
+// Функція, яка переміщує зображення
+function moveImage() {
+    // Збільшуємо положення зображення на 1 піксель
+    position++;
+
+    // Встановлюємо нове положення зображення
+    image.style.left = position + 'px';
+
+    // Перевіряємо, чи зображення вже дійшло до кінця своєї траєкторії (наприклад, до правого краю вікна)
+    // В цьому прикладі, якщо зображення дійшло до 1000 пікселів, видаляємо інтервал і зупиняємо анімацію
+    if (position >= 1000) {
+        clearInterval(interval);
+    }
+}
 </script>
-<iframe src = "https://test3-6cmj.onrender.com/"></iframe>
 
 </body>
 </html>
